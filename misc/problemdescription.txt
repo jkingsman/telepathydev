@@ -1,0 +1,16 @@
+Telepathy is a deduction game; think Mastermind meets Battleship. Each player has a gameboard of an 18x18 grid, upon which is an even distribution of 9 symbols in 9 colors each. See a picture of the board: https://photos.app.goo.gl/uArgj3q5rthgU4SNA
+
+Each player chooses their "home", which is a single cell of the board and can be described exclusively by row-column location, but usually also includes the color and symbol on that cell for simplicity. For example:
+
+I-10, Blue Circle
+
+The opposing player then attempts to deduce the other player's "home" by making guesses of cells on the board. If the guess has ANY element in common with the home, the defending player states "Yes". If the guess has NO element in common with the home, the defending player states "No".
+
+For example, the home is:
+
+I-10, Blue Circle
+
+A guess of I-3, Purple Diamond would result in a "Yes" because the row (I) is correct.
+A guess of J-4, Blue Diamond would result in a "No" because it shares no elements with the home.
+A guess of I-2, Blue Sun would result in a "Yes" because it shares two elements with the home (row (I) and color (Blue))
+A guess of I-10, Blue Circle would still only result in a "Yes" despite matching perfectly -- a player can only win if they have announced before guessing that they are solving; if they are correct, they win. If not, they lose. Either way, the game is over.

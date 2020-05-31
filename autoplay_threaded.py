@@ -8,12 +8,16 @@ from guesser import FitnessGuesser as Guesser
 from responder import Responder
 from helpers import getCellTuple, n2l, formatCell
 
-thresholds = [1, 2, 4, 5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100]  # 17
-weights = [.05, .1, .15, .2, .25, .3, .35, .4, .45, .5, .55, .6, -.05, -.1, -.15, -.2, -.25, -.3, -.35, -.4, -.45, -.5, -.55, -.6] # 24
+thresholds = [4, 10, 15, 20, 30, 40]
+weights = [0, .05, .1, .15, .2, .25, .3, -.05, -.1, -.15, -.2, -.25, -.3]
 
 weightTuples = [(x, y, z) for x in thresholds for y in weights for z in weights]
 
+runTuples = 0
 for weightTuple in weightTuples:
+    print(f"# Running tuple {runTuples} of {len(weightTuples)}")
+    runTuples += 1
+
     def runIters(procNum):
         ITERATIONS = 100
         guessesToWin = []
@@ -50,7 +54,7 @@ for weightTuple in weightTuples:
 
     import multiprocessing
     pool = multiprocessing.Pool()
-    results = pool.map(runIters, range(10))
+    results = pool.map(runIters, range(5))
 
     turnCountsToWin = []
     lossCount = 0
